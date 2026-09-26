@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Banner - MFM Admin</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="edit-banner.css">
+</head>
+<body class="admin-edit-page">
+
+  <!-- Title Bar: "Edit Banner" -->
+  <header class="edit-banner-header">
+    <div class="header-left">
+      <a href="index.html" class="header-back-btn" aria-label="Go back to Admin Home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="header-icon">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </a>
+      <h1 class="header-title">Edit Banner</h1>
+    </div>
+
+    <div class="header-right">
+      <button class="header-add-btn" id="openCreatorBtn" aria-label="Create New Banner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="header-icon">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        <span>New Banner</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="edit-banner-container">
+
+    <!-- Search & Statistics Bar -->
+    <section class="search-stats-section">
+      <div class="search-input-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-svg" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="search" id="bannerSearchInput" class="banner-search-input" placeholder="Search banners by title, badge, or text..." aria-label="Search banners">
+        <button id="clearSearchBtn" class="clear-search-btn" style="display:none;" aria-label="Clear search">&times;</button>
+      </div>
+
+      <div class="stats-pills">
+        <span class="stat-pill" id="totalCountPill">Total: 4</span>
+        <span class="stat-pill pill-active" id="visibleCountPill">Active: 4</span>
+        <span class="stat-pill pill-hidden" id="hiddenCountPill">Hidden: 0</span>
+      </div>
+    </section>
+
+    <!-- Banner Form (Create / Edit) -->
+    <section class="banner-form-card" id="bannerFormSection">
+      <div class="form-header">
+        <h2 id="formHeading">Create New Banner</h2>
+        <button type="button" class="form-close-toggle" id="cancelEditBtn" style="display:none;">Cancel Edit</button>
+      </div>
+
+      <!-- Live Preview -->
+      <div class="live-preview-box">
+        <span class="preview-label">Live Preview (As shown to visitors)</span>
+        <article class="carousel-card card-gradient-1 preview-card" id="livePreviewCard">
+          <div>
+            <span class="card-badge" id="previewBadge">NEW ANNOUNCEMENT</span>
+            <h2 class="card-heading" id="previewTitle">Your Banner Title Here</h2>
+            <p class="card-desc" id="previewDesc">Description of this service, programme or announcement will appear here.</p>
+          </div>
+          <div class="card-actions">
+            <span class="card-btn btn-primary" id="previewBtn1">Learn More</span>
+            <span class="card-btn btn-ghost" id="previewBtn2" style="display:none;">Action</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Input Form -->
+      <form id="bannerForm" class="banner-form">
+        <input type="hidden" id="editingBannerId" value="">
+
+        <div class="form-group">
+          <label for="bannerBadge">Badge / Category Tag</label>
+          <input type="text" id="bannerBadge" placeholder="e.g. SPECIAL PROGRAMME, SUNDAY SERVICE" required maxlength="35">
+        </div>
+
+        <div class="form-group">
+          <label for="bannerTitle">Banner Title / Heading</label>
+          <input type="text" id="bannerTitle" placeholder="e.g. Power Must Change Hands" required maxlength="70">
+        </div>
+
+        <div class="form-group">
+          <label for="bannerDesc">Description / Message</label>
+          <textarea id="bannerDesc" rows="3" placeholder="Write a brief announcement or details for this banner..." required maxlength="250"></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label for="bannerBtn1Text">Primary Button Text</label>
+            <input type="text" id="bannerBtn1Text" placeholder="e.g. Join Service Online" maxlength="30">
+          </div>
+          <div class="form-group flex-1">
+            <label for="bannerBtn1Link">Primary Button Link</label>
+            <input type="text" id="bannerBtn1Link" placeholder="e.g. #services or https://...">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group flex-1">
+            <label for="bannerBtn2Text">Secondary Button Text (Optional)</label>
+            <input type="text" id="bannerBtn2Text" placeholder="e.g. Learn More" maxlength="30">
+          </div>
+          <div class="form-group flex-1">
+            <label for="bannerBtn2Link">Secondary Button Link</label>
+            <input type="text" id="bannerBtn2Link" placeholder="e.g. #about">
+          </div>
+        </div>
+
+        <!-- Color Gradient Theme Picker -->
+        <div class="form-group">
+          <label>Theme &amp; Background Gradient</label>
+          <div class="gradient-picker">
+            <label class="gradient-option">
+              <input type="radio" name="bannerGradient" value="card-gradient-1" checked>
+              <span class="gradient-swatch card-gradient-1" title="Royal MFM Purple"></span>
+              <span class="swatch-name">Royal</span>
+            </label>
+            <label class="gradient-option">
+              <input type="radio" name="bannerGradient" value="card-gradient-2">
+              <span class="gradient-swatch card-gradient-2" title="Deep Violet"></span>
+              <span class="swatch-name">Violet</span>
+            </label>
+            <label class="gradient-option">
+              <input type="radio" name="bannerGradient" value="card-gradient-3">
+              <span class="gradient-swatch card-gradient-3" title="Magenta Fire"></span>
+              <span class="swatch-name">Magenta</span>
+            </label>
+            <label class="gradient-option">
+              <input type="radio" name="bannerGradient" value="card-gradient-4">
+              <span class="gradient-swatch card-gradient-4" title="Dark Amethyst"></span>
+              <span class="swatch-name">Amethyst</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="save-banner-btn" id="saveBannerBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="btn-svg">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span id="saveBtnText">Save &amp; Publish Banner</span>
+          </button>
+          <button type="button" class="reset-form-btn" id="resetFormBtn">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Banners List: Reposition, Hide, Edit, Remove -->
+    <section class="banner-list-section">
+      <div class="list-header">
+        <h2>Existing Banners (<span id="bannerListCount">0</span>)</h2>
+        <span class="list-subtext">Use arrows to reposition &bull; Toggle eye to hide/show</span>
+      </div>
+
+      <div class="banners-list" id="bannersList">
+        <!-- Dynamically injected items -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="admin-modal-overlay" id="deleteModalOverlay">
+    <div class="admin-modal">
+      <h3 class="modal-alert-title">Remove Banner?</h3>
+      <p class="modal-alert-msg" id="deleteModalMsg">Are you sure you want to remove this banner? This action will immediately delete it from both admin and public carousels.</p>
+      <div class="modal-actions">
+        <button class="modal-btn btn-secondary" id="cancelDeleteBtn">Cancel</button>
+        <button class="modal-btn btn-danger" id="confirmDeleteBtn">Delete Banner</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="banners.js"></script>
+  <script src="edit-banner.js"></script>
+</body>
+</html>
