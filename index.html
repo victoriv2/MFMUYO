@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mountain of Fire and Miracles Ministries</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="brand-container">
+      <img src="logo/logo.png" alt="MFM Logo" class="brand-logo">
+      <div class="brand-text">
+        <span class="brand-title">Mountain of fire and miracles ministries</span>
+        <span class="brand-subtitle">South-South 3 Mega Region, Uyo, Akwa Ibom State, Nigeria</span>
+      </div>
+    </div>
+
+    <!-- Hamburger Button -->
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+  </header>
+
+  <!-- Side Navigation Drawer & Overlay -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <nav class="nav-drawer" id="navDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <span class="drawer-title">Menu</span>
+      <button class="close-btn" id="closeBtn" aria-label="Close menu">&times;</button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-item">Home</a></li>
+      <li><a href="#about" class="nav-item">About Us</a></li>
+      <li><a href="#ministries" class="nav-item">Ministries</a></li>
+      <li><a href="#sermons" class="nav-item">Sermons</a></li>
+      <li><a href="#events" class="nav-item">Events</a></li>
+      <li><a href="#give" class="nav-item">Give / Offering</a></li>
+      <li><a href="#contact" class="nav-item">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Home Page Content Area -->
+  <main class="content-area">
+    <div class="home-container">
+
+      <!-- 1. Hero Carousel Slider (First Card with Next Card peeking) -->
+      <section class="carousel-section" aria-label="Featured Announcements">
+        <div class="carousel-track" id="carouselTrack">
+          
+          <!-- Slide 1 -->
+          <article class="carousel-card card-gradient-1">
+            <span class="card-badge">WELCOME TO CHURCH</span>
+            <h2 class="card-heading">Mountain of Fire &amp; Miracles Ministries</h2>
+            <p class="card-desc">South-South 3 Mega Region HQ, Uyo, Akwa Ibom State. A house of prayers, deliverance and divine transformations.</p>
+            <div class="card-actions">
+              <a href="#services" class="card-btn btn-primary">Join Live Service</a>
+              <a href="#about" class="card-btn btn-ghost">Learn More</a>
+            </div>
+          </article>
+
+          <!-- Slide 2 -->
+          <article class="carousel-card card-gradient-2">
+            <span class="card-badge">FLAGSHIP PROGRAMME</span>
+            <h2 class="card-heading">Power Must Change Hands</h2>
+            <p class="card-desc">Monthly inter-denominational deliverance service holding every first Saturday of the month by 6:30 AM.</p>
+            <div class="card-actions">
+              <a href="#pmch" class="card-btn btn-primary">Programme Details</a>
+              <a href="#prayer" class="card-btn btn-ghost">Prayer Points</a>
+            </div>
+          </article>
+
+          <!-- Slide 3 -->
+          <article class="carousel-card card-gradient-3">
+            <span class="card-badge">SUNDAY WORSHIP</span>
+            <h2 class="card-heading">Service of Signs &amp; Wonders</h2>
+            <p class="card-desc">Experience supernatural breakthroughs and power-packed prophetic ministering every Lord's Day.</p>
+            <div class="card-actions">
+              <a href="#schedule" class="card-btn btn-primary">Service Schedule</a>
+            </div>
+          </article>
+
+          <!-- Slide 4 -->
+          <article class="carousel-card card-gradient-4">
+            <span class="card-badge">MIDWEEK REVIVAL</span>
+            <h2 class="card-heading">Manna Water Service</h2>
+            <p class="card-desc">Every Wednesday by 5:00 PM. Come with your water bottle for prophetic sanctification and healing.</p>
+            <div class="card-actions">
+              <a href="#manna" class="card-btn btn-primary">Watch Replays</a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Carousel Indicators (Pill + Dots matching sketch) -->
+        <div class="carousel-indicators" id="carouselIndicators" aria-label="Slider pagination">
+          <button class="indicator-dot active" data-index="0" aria-label="Go to slide 1"></button>
+          <button class="indicator-dot" data-index="1" aria-label="Go to slide 2"></button>
+          <button class="indicator-dot" data-index="2" aria-label="Go to slide 3"></button>
+          <button class="indicator-dot" data-index="3" aria-label="Go to slide 4"></button>
+        </div>
+      </section>
+
+      <!-- 2. Middle Content Card (Second rounded block from sketch) -->
+      <section class="content-card devotional-card">
+        <div class="card-header-bar">
+          <span class="card-tag">DAILY DEVOTIONAL</span>
+          <span class="card-date">Today's Word</span>
+        </div>
+        <h3 class="card-title">Divine Victory Over Every Battle</h3>
+        <blockquote class="bible-verse">
+          "The Lord shall fight for you, and ye shall hold your peace."
+          <cite>&mdash; Exodus 14:14</cite>
+        </blockquote>
+        <p class="card-text">
+          Beloved, you are never alone in any conflict. God is orchestrating your total deliverance and silencing every adversary. Stand steadfast in prayer today.
+        </p>
+        <div class="card-footer-action">
+          <a href="#devotional" class="text-link">Read Full Devotional &amp; Prayer Points &rarr;</a>
+        </div>
+      </section>
+
+      <!-- 3. Bottom Content Card (Third rounded block from sketch) -->
+      <section class="content-card services-card">
+        <div class="card-header-bar">
+          <span class="card-tag">WEEKLY SERVICES</span>
+          <span class="card-date">Mega Region HQ</span>
+        </div>
+        <h3 class="card-title">Join Our Regular Worship</h3>
+        
+        <div class="schedule-list">
+          <div class="schedule-item">
+            <div class="schedule-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="schedule-icon" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div class="schedule-info">
+              <h4>Sunday Glorious Services</h4>
+              <p>1st Service: 7:00 AM &bull; 2nd Service: 9:30 AM</p>
+            </div>
+          </div>
+
+          <div class="schedule-item">
+            <div class="schedule-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="schedule-icon" aria-hidden="true">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+            </div>
+            <div class="schedule-info">
+              <h4>Wednesday Manna Water</h4>
+              <p>Revival &amp; Deliverance Service &bull; 5:00 PM</p>
+            </div>
+          </div>
+
+          <div class="schedule-item">
+            <div class="schedule-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="schedule-icon" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="schedule-info">
+              <h4>Counseling &amp; Deliverance</h4>
+              <p>Tuesdays &bull; 10:00 AM &ndash; 2:00 PM</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Floating Action Button: Phone Call (Bottom right circle as sketched) -->
+    <button class="call-fab-btn" id="callFabBtn" aria-label="Call Pastoral Prayer Helpline">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" class="fab-phone-icon" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+    </button>
+
+    <!-- Call / Prayer Line Modal -->
+    <div class="call-modal-overlay" id="callModalOverlay">
+      <div class="call-modal" role="dialog" aria-labelledby="modalTitle">
+        <div class="call-modal-header">
+          <h3 id="modalTitle">Prayer &amp; Counseling Line</h3>
+          <button class="call-modal-close" id="callModalClose" aria-label="Close dialog">&times;</button>
+        </div>
+        <p class="call-modal-desc">Need spiritual assistance, prayer support, or pastoral counseling? Reach out directly:</p>
+        <div class="phone-numbers-list">
+          <a href="tel:+2348030000000" class="phone-link-card">
+            <div class="phone-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="modal-phone-svg" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <div class="phone-info">
+              <span class="phone-name">Prayer Line (Uyo HQ)</span>
+              <span class="phone-digits">+234 803 000 0000</span>
+            </div>
+            <span class="phone-call-badge">Call</span>
+          </a>
+          <a href="tel:+2348020000000" class="phone-link-card">
+            <div class="phone-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="modal-phone-svg" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <div class="phone-info">
+              <span class="phone-name">Mega Region Office</span>
+              <span class="phone-digits">+234 802 000 0000</span>
+            </div>
+            <span class="phone-call-badge">Call</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Navigation Bar -->
+  <footer class="bottom-bar">
+    <nav class="bottom-nav" aria-label="Main navigation">
+
+      <!-- Home -->
+      <a href="#home" class="nav-tab active" aria-label="Home">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
+          <polyline points="9 21 9 13 15 13 15 21"/>
+        </svg>
+        <span class="nav-label">Home</span>
+      </a>
+
+      <!-- Events -->
+      <a href="#events" class="nav-tab" aria-label="Events">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <span class="nav-label">Events</span>
+      </a>
+
+      <!-- Gallery -->
+      <a href="#gallery" class="nav-tab" aria-label="Gallery">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <polyline points="21 15 16 10 5 21"/>
+        </svg>
+        <span class="nav-label">Gallery</span>
+      </a>
+
+      <!-- Announcements -->
+      <a href="#announcements" class="nav-tab" aria-label="Announcements">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+        <span class="nav-label">Announcements</span>
+      </a>
+
+      <!-- More -->
+      <a href="#more" class="nav-tab" aria-label="More">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="5" r="1"/>
+          <circle cx="12" cy="12" r="1"/>
+          <circle cx="12" cy="19" r="1"/>
+        </svg>
+        <span class="nav-label">More</span>
+      </a>
+
+    </nav>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

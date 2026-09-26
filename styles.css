@@ -1,0 +1,790 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top Bar */
+.top-bar {
+  background-color: #800080;
+  min-height: 74px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Brand Section (Logo + Text) */
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.brand-logo {
+  height: 52px;
+  width: auto;
+  max-width: 60px;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+
+.brand-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.brand-subtitle {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #f3d9fa;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+/* Hamburger Button */
+.hamburger-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.hamburger-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.hamburger-btn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.hamburger-line {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hamburger Active / Transform to X */
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Menu Overlay */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1050;
+}
+
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Side Navigation Drawer */
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100%;
+  background-color: #ffffff;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  z-index: 1100;
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1.5rem;
+}
+
+.nav-drawer.open {
+  right: 0;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 1.5rem;
+}
+
+.drawer-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #800080;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  color: #555555;
+  cursor: pointer;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+.close-btn:hover {
+  color: #000000;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.nav-item {
+  display: block;
+  text-decoration: none;
+  color: #333333;
+  font-size: 1.05rem;
+  font-weight: 500;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-item:hover {
+  background-color: rgba(128, 0, 128, 0.1);
+  color: #800080;
+}
+
+/* Main Content Area */
+.content-area {
+  flex: 1;
+  width: 100%;
+  background-color: #f7f5f9;
+  display: block;
+}
+
+.home-container {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 1.2rem 0 5.5rem 0;
+  width: 100%;
+}
+
+/* 1. Hero Carousel Banner Slider */
+.carousel-section {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 1rem;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-card {
+  flex: 0 0 86%;
+  min-width: 86%;
+  scroll-snap-align: center;
+  border-radius: 18px;
+  padding: 1.35rem 1.2rem;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(78, 6, 85, 0.22);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+}
+
+/* Gradients for cards */
+.card-gradient-1 {
+  background: linear-gradient(135deg, #580668 0%, #800080 55%, #3d0245 100%);
+}
+
+.card-gradient-2 {
+  background: linear-gradient(135deg, #3d0752 0%, #6e0b7b 55%, #9b1989 100%);
+}
+
+.card-gradient-3 {
+  background: linear-gradient(135deg, #4f0a4f 0%, #800080 50%, #b81f92 100%);
+}
+
+.card-gradient-4 {
+  background: linear-gradient(135deg, #2d0340 0%, #5b096e 50%, #800080 100%);
+}
+
+.card-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  color: #ffffff;
+}
+
+.card-heading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.45rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card-desc {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.card-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: #ffffff;
+  color: #800080;
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.card-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+/* Carousel Indicators (Pill + Dots matching sketch) */
+.carousel-indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #d1b8d6;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.indicator-dot.active {
+  width: 28px;
+  border-radius: 4px;
+  background-color: #800080;
+}
+
+/* 2 & 3. Rounded Content Cards */
+.content-card {
+  background: #ffffff;
+  border-radius: 18px;
+  margin: 0 1rem 1rem 1rem;
+  padding: 1.2rem;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(128, 0, 128, 0.08);
+}
+
+.card-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.card-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #800080;
+  letter-spacing: 0.04em;
+}
+
+.card-date {
+  font-size: 0.68rem;
+  color: #777777;
+  font-weight: 500;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #222222;
+  margin-bottom: 0.65rem;
+  line-height: 1.3;
+}
+
+.bible-verse {
+  background: #faf5fc;
+  border-left: 3px solid #800080;
+  padding: 0.65rem 0.85rem;
+  border-radius: 4px 10px 10px 4px;
+  font-style: italic;
+  color: #3e0c46;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  margin-bottom: 0.65rem;
+}
+
+.bible-verse cite {
+  display: block;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.74rem;
+  color: #800080;
+  margin-top: 4px;
+  text-align: right;
+}
+
+.card-text {
+  font-size: 0.82rem;
+  color: #555555;
+  line-height: 1.45;
+  margin-bottom: 0.75rem;
+}
+
+.card-footer-action .text-link {
+  color: #800080;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+.card-footer-action .text-link:hover {
+  transform: translateX(3px);
+}
+
+/* Schedule List for Card 3 */
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 0.4rem;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: #faf8fb;
+}
+
+.schedule-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(128, 0, 128, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #800080;
+}
+
+.schedule-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.schedule-info h4 {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #222222;
+  margin-bottom: 2px;
+}
+
+.schedule-info p {
+  font-size: 0.74rem;
+  color: #666666;
+  line-height: 1.2;
+}
+
+/* 4. Floating Action Button: Phone Call (Bottom right circle as sketched) */
+.call-fab-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 84px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a007a0 0%, #800080 100%);
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  box-shadow: 0 6px 20px rgba(128, 0, 128, 0.45);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: pulse-fab 2.8s infinite;
+}
+
+.call-fab-btn:hover {
+  transform: scale(1.08);
+}
+
+.fab-phone-icon {
+  width: 24px;
+  height: 24px;
+}
+
+@keyframes pulse-fab {
+  0% {
+    box-shadow: 0 0 0 0 rgba(128, 0, 128, 0.5), 0 6px 20px rgba(128, 0, 128, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(128, 0, 128, 0), 0 6px 20px rgba(128, 0, 128, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(128, 0, 128, 0), 0 6px 20px rgba(128, 0, 128, 0.45);
+  }
+}
+
+/* Call Modal */
+.call-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  z-index: 1200;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.call-modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.call-modal {
+  background: #ffffff;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 20px;
+  padding: 1.4rem;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+  transform: translateY(20px);
+  transition: transform 0.25s ease;
+}
+
+.call-modal-overlay.open .call-modal {
+  transform: translateY(0);
+}
+
+.call-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.call-modal-header h3 {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #800080;
+}
+
+.call-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #666666;
+  padding: 0 4px;
+}
+
+.call-modal-close:hover {
+  color: #000000;
+}
+
+.call-modal-desc {
+  font-size: 0.8rem;
+  color: #555555;
+  line-height: 1.4;
+  margin-bottom: 1.15rem;
+}
+
+.phone-numbers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.phone-link-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #faf5fc;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s ease;
+  border: 1px solid rgba(128, 0, 128, 0.12);
+}
+
+.phone-link-card:hover {
+  background: #f3e4f7;
+}
+
+.phone-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #800080;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modal-phone-svg {
+  width: 18px;
+  height: 18px;
+}
+
+.phone-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.phone-name {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #555555;
+}
+
+.phone-digits {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #800080;
+}
+
+.phone-call-badge {
+  background: #800080;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+/* Bottom Navigation Bar */
+.bottom-bar {
+  background-color: #800080;
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  z-index: 1000;
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.bottom-nav {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  width: 100%;
+  height: 68px;
+}
+
+.nav-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 4px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.65);
+  padding: 8px 4px 6px;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  position: relative;
+}
+
+.nav-tab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 0 0 3px 3px;
+  transition: width 0.25s ease;
+}
+
+.nav-tab:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.nav-tab.active {
+  color: #ffffff;
+}
+
+.nav-tab.active::before {
+  width: 32px;
+}
+
+.nav-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.nav-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  line-height: 1.1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .brand-title {
+    font-size: 0.92rem;
+    line-height: 1.2;
+  }
+
+  .brand-subtitle {
+    font-size: 0.72rem;
+    line-height: 1.2;
+  }
+
+  .brand-logo {
+    height: 42px;
+  }
+
+  .top-bar {
+    min-height: 64px;
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-drawer {
+    width: 260px;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-label {
+    font-size: 0.60rem;
+  }
+
+  .nav-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .nav-tab {
+    padding: 6px 2px 4px;
+  }
+}
